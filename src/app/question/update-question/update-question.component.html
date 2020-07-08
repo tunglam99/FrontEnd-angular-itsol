@@ -1,0 +1,23 @@
+<div>
+  <h2>Chỉnh sủa câu hỏi</h2>
+</div>
+<form [formGroup]="questionForm" (ngSubmit)="updateQuestion()">
+  <label>
+    Câu hỏi:
+    <input type="text" formControlName="content">
+  </label>
+  <label>
+    <label>Danh mục:</label>
+    <select formControlName="category">
+      <option [ngValue]="null" disabled>Chọn danh mục </option>
+      <option *ngFor="let category of categoryList" [value]="category.id">{{category.name}}</option>
+    </select>
+  </label>
+  <div class=”col”>
+    <button type="submit">Lưu</button>
+  </div>
+</form>
+
+<div>
+  <a routerLink="/list-question">Danh sách câu hỏi</a>
+</div>

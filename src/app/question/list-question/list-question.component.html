@@ -1,0 +1,21 @@
+<div>
+  <span>Danh sách câu hỏi</span>
+</div>
+<router-outlet></router-outlet>
+<div>
+  <a routerLink="/create-question">Tạo mới câu hỏi</a>
+</div>
+<div>
+  <table>
+    <tr>
+      <th>Câu hỏi</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor="let question of questionList">
+      <td>{{question.content}}</td>
+      <td><a [routerLink]="['/update-question',question.id]">Edit</a></td>
+      <td><a [routerLink]="['/delete-question',question.id]">Delete</a></td>
+    </tr>
+  </table>
+</div>

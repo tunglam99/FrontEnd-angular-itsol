@@ -1,0 +1,22 @@
+<div>
+  <h2>Tạo mới câu hỏi</h2>
+</div>
+<form [formGroup]="questionForm" (ngSubmit)="addQuestion()">
+  <label>
+    Câu hỏi:
+    <input type="text" formControlName="content">
+  </label>
+  <label>
+    <label>Danh mục:</label>
+    <select formControlName="category">
+      <option *ngFor="let category of categoryList" [value]="category.id">{{category.name}}</option>
+    </select>
+  </label>
+  <div>
+    <button type="submit">Tạo mới</button>
+  </div>
+</form>
+
+<div>
+  <a routerLink="/list-question">Danh sách câu hỏi</a>
+</div>
