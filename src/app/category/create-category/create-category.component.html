@@ -1,0 +1,17 @@
+<div>
+  <h2>Tạo mới</h2>
+</div>
+<form [formGroup]="categoryForm" (ngSubmit)="addCategory()">
+  <label>
+    Danh mục:
+    <input type="text" formControlName="name">
+  </label>
+  <div>
+    <button type="submit">Tạo mới</button>
+  </div>
+</form>
+
+<div>
+  <a routerLink="/list-category">Danh sách câu hỏi</a>
+</div>
+

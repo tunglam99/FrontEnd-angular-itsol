@@ -22,9 +22,9 @@ export class LoginComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
               private authenticationService: AuthenticationService) {
-    if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/']);
-    }
+    // if (this.authenticationService.currentUserValue) {
+    //   this.router.navigate(['/']);
+    // }
   }
 
   ngOnInit(): void {
@@ -39,7 +39,8 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate([this.returnUrl]);
+          localStorage.setItem('ACCESS_TOKEN', data.accessToken);
+          this.router.navigate(['/list-question']);
         },
         error => {
           this.error = error;

@@ -26,20 +26,20 @@ ngOnInit() {
   this.getCategories();
 }
 
-addQuestion() {
-  const question: Question = {
-    id: 0,
-    content: this.questionForm.value.content,
-    category: {
-      id: this.questionForm.value.category
-    }
-  };
-  this.questionService.createQuestion(question).subscribe(() => {
-    alert('success');
-    this.questionForm.reset();
-  }, () => {
-  });
-}
+  addQuestion() {
+    const question: Question = {
+      id: 0,
+      content: this.questionForm.value.content,
+      category: {
+        id: this.questionForm.value.category
+      }
+    };
+    this.questionService.createQuestion(question).subscribe(() => {
+      alert('success');
+      this.questionForm.reset();
+    }, () => {
+    });
+  }
 
 getCategories() {
   this.categoryService.listCategory().subscribe((result) => {

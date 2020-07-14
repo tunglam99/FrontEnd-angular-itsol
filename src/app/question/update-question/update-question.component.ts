@@ -31,26 +31,26 @@ ngOnInit() {
   this.getCategories();
 }
 
-updateQuestion() {
-  this.sub = this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
-    const id = +paramMap.get('id');
-    this.questionService.getQuestion(id).subscribe(result => {
-      this.currentQuestion = result;
-      const question: Question = {
-        id: 0,
-        content: this.questionForm.value.content,
-        category: {
-          id: this.questionForm.value.category
-        }
-      };
-      this.questionService.updateQuestion(id, question).subscribe(() => {
-        alert('success');
-        this.questionForm.reset();
-      }, () => {
+  updateQuestion() {
+    this.sub = this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
+      const id = +paramMap.get('id');
+      this.questionService.getQuestion(id).subscribe(result => {
+        this.currentQuestion = result;
+        const question: Question = {
+          id: 0,
+          content: this.questionForm.value.content,
+          category: {
+            id: this.questionForm.value.category
+          }
+        };
+        this.questionService.updateQuestion(id, question).subscribe(() => {
+          alert('success');
+          this.questionForm.reset();
+        }, () => {
+        });
       });
     });
-  });
-}
+  }
 
 
 getCategories() {
