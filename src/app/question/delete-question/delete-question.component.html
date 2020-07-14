@@ -1,16 +1,18 @@
-<div>
-  <h2>Bạn có muốn xóa không ?</h2>
-</div>
-
+<div class="container">
+  <div class="jumbotron">
+    <h1>Bạn có muốn xóa không</h1></div>
 <label>
   Câu hỏi:
-  <span>{{currentQuestion.content}}</span>
 </label>
+  <div>
+    <span>{{currentQuestion.content}}</span>
+  </div>
+  <br>
 <div>
-  <button type="submit" (click)="deleteQuestion()">Delete</button>
+  <button class="btn btn-danger" type="submit" (click)="deleteQuestion()">Delete</button>
 </div>
-
+<br>
 <div>
   <a routerLink="/list-question">Danh sách câu hỏi</a>
 </div>
-
+</div>

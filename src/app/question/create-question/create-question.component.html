@@ -1,23 +1,36 @@
-<div>
-  <h2>Tạo mới</h2>
-</div>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Tạo mới câu hỏi</h1></div>
+
+<div class="input-group">
 <form [formGroup]="questionForm" (ngSubmit)="addQuestion()">
   <label>
     Câu hỏi:
-    <input type="text" formControlName="content">
   </label>
-  <label>
-    <label>Danh mục:</label>
+
+  <div class="input-group">
+
+    <span class="input-group-addon"></span>
+
+    <input type="text" formControlName="content">
+
+  </div>
+
+  <br>
+    <label>Danh mục:  </label>
+    <div>
     <select formControlName="category">
       <option *ngFor="let category of categoryList" [value]="category.id">{{category.name}}</option>
     </select>
-  </label>
+    </div>
+  <br>
   <div>
-    <button type="submit">Tạo mới</button>
+    <button class="btn btn-danger" type="submit">Tạo mới</button>
   </div>
 </form>
-
+</div>
+<br>
 <div>
   <a routerLink="/list-question">Danh sách câu hỏi</a>
 </div>
-
+</div>

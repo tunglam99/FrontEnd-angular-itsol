@@ -1,23 +1,32 @@
-<div>
-  <h2>Chỉnh sủa câu hỏi</h2>
-</div>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Chỉnh sửa câu hỏi</h1></div>
 <form [formGroup]="questionForm" (ngSubmit)="updateQuestion()">
   <label>
     Câu hỏi:
-    <input type="text" formControlName="content">
   </label>
-  <label>
-    <label>Danh mục:</label>
+  <div class="input-group">
+
+    <span class="input-group-addon"></span>
+
+    <input type="text" formControlName="content">
+
+  </div>
+  <br>
+  <label>Danh mục:  </label>
+  <div>
     <select formControlName="category">
-      <option [ngValue]="null" disabled>Chọn danh mục </option>
       <option *ngFor="let category of categoryList" [value]="category.id">{{category.name}}</option>
     </select>
-  </label>
+  </div>
+  <br>
   <div>
-    <button type="submit">Lưu</button>
+    <button class="btn btn-danger" type="submit">Lưu</button>
   </div>
 </form>
-
+<br>
 <div>
   <a routerLink="/list-question">Danh sách câu hỏi</a>
 </div>
+</div>
+

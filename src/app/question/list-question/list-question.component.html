@@ -1,21 +1,36 @@
-<div>
-  <span>Danh sách câu hỏi</span>
-</div>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Danh sách câu hỏi</h1></div>
 <router-outlet></router-outlet>
-<div>
-  <a routerLink="/create-question">Tạo mới câu hỏi</a>
-</div>
-<div>
+
+
+<div class="panel panel-primary">
   <table>
     <tr>
       <th>Câu hỏi</th>
-      <th>Edit</th>
+      <th class="active">Edit</th>
       <th>Delete</th>
     </tr>
     <tr *ngFor="let question of questionList">
       <td>{{question.content}}</td>
-      <td><a [routerLink]="['/update-question',question.id]">Edit</a></td>
-      <td><a [routerLink]="['/delete-question',question.id]">Delete</a></td>
+      <td><div class="alert alert-success" role="alert">
+
+        <a [routerLink]="['/update-question',question.id]">Update</a>
+
+          </div>
+
+      </td>
+      <td><div class="alert alert-success" role="alert">
+
+        <a [routerLink]="['/delete-question',question.id]">Delete</a>
+
+      </div>
+      </td>
     </tr>
   </table>
+  <br>
+  <div class="btn-group">
+    <button type="button" class="btn btn-danger" routerLink="/create-question">Tạo mới câu hỏi</button>
+  </div>
+</div>
 </div>
