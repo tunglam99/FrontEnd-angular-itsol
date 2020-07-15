@@ -33,4 +33,7 @@ export class QuestionService {
   deleteQuestion(id: number): Observable<Question> {
     return this.http.delete<Question>(API_URL + `/question/${id}`);
   }
+  findAllQuestionByContent(content: string): Observable<Question[]> {
+    return this.http.get<Question[]>(API_URL + '/findAllQuestionByContent?content=' + content);
+  }
 }

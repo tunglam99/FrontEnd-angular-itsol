@@ -2,7 +2,29 @@
   <div class="jumbotron">
     <h1>Danh sách câu hỏi</h1></div>
 <router-outlet></router-outlet>
+  <form [formGroup]="searchForm"
+        (ngSubmit)="searchQuestion(searchForm.value.content)">
+    <div class="input-group input-group-sm">
+      <input class="form-control mr-3 col-5" type="search" placeholder="Tìm kiếm"
+             aria-label="Search" formControlName="content">
+      <div class="input-group-append col-3">
+        <button class="btn btn-primary" type="submit">
+          Tìm kiếm <i class="fa fa-search"></i>
+        </button>
+      </div>
 
+    </div>
+  </form>
+  <br>
+  <tbody>
+  <tr *ngFor="let question of questionStatusIsTrueList; index as i">
+    <td>{{i + 1}}</td>
+    <td [innerHTML]="question.content"></td>
+  </tr>
+  <tr>
+  </tbody>
+
+  <br>
 
 <div class="panel panel-primary">
   <table>
